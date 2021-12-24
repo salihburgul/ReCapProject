@@ -1,4 +1,5 @@
-﻿using ReCapProject.Entities.Concrete;
+﻿using DataAccess.Abstract;
+using ReCapProject.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ReCapProject.DataAccess.Abstract
 {
-    public interface ICarDal
+    public interface ICarDal: IEntityRepository<Car>
     {
         List<Car> GetAll();
         List<Car> GetById(int id);

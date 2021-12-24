@@ -24,5 +24,36 @@ namespace ReCapProject.Business.Concrete
         {
             return _carDal.GetById(id);
         }
+        public void Add(Car car)
+        {
+            if(car.Description.Length <= 2 && car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+                Console.WriteLine("Araba Eklendi");
+            }
+            else
+            {
+                Console.WriteLine("Araba Kaydı Başarısız");
+            }
+            
+        }
+        public void Delete(Car car)
+        {
+            _carDal.Delete(car);
+
+        }
+        public void Update(Car car)
+        {
+            _carDal.Update(car);
+        }
+        public List<Car> GetCarsByBrandId(int id)
+        {
+            return _carDal.GetAll(c => c.BrandId == id);
+
+        }
+        public List<Car> GetCarsByColorId(int id)
+        {
+            return _carDal.GetAll(c => c.ColorId == id);
+        }
     }
 }
